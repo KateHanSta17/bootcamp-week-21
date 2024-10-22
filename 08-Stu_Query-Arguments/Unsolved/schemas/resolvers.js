@@ -16,7 +16,10 @@ const resolvers = {
 
     professors: async () => {
       return await Professor.find({}).populate('classes');
-    }
+    },
+     class: async (parent, { id }) => { // id in typedef is called id not _id (in reference to first error)
+      return await Class.findById(id).populate('professor');
+  }
   }
 };
 

@@ -1,9 +1,13 @@
 const express = require('express');
 // TODO: Add a comment describing the functionality of this expression
+// the expression is importing the ApolloServer class from the apollo-server package and the 
+// expressMiddleware function from the apollo-server/express4 package.
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 
 // TODO: Add a comment describing the functionality of this expression
+// the expression is importing the typeDefs and resolvers objects from the schemas file
+// the typeDefs object contains the schema for the graphql server and the resolvers object contains the functions that will be called when the server receives a query or mutation.
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -16,6 +20,8 @@ const server = new ApolloServer({
 const app = express();
 
 // TODO: Add a comment describing the functionality of this async function
+// the function is starting the Apollo server and setting up the express server to use the middleware function from the 
+// Apollo server package to handle the graphql endpoint and then starting the express server on the specified port and logging a message to the console.
 const startApolloServer = async () => {
   await server.start();
   
@@ -33,4 +39,5 @@ const startApolloServer = async () => {
 };
 
 // TODO: Add a comment describing this functionality
+// the function is calling the startApolloServer function to start the server and set up the express server.
 startApolloServer();
