@@ -13,6 +13,8 @@ const ThoughtForm = () => {
 
   // Set up our mutation with an option to handle errors
   // TODO: Add comment describing the functionality of the useMutation second argument & refetchQueries property
+  // The functionality of the useMutation second argument is to handle errors. 
+  // The refetchQueries property is used to refetch the queries that are listed in the array after the mutation is completed.
   const [addThought, { error }] = useMutation
   (ADD_THOUGHT, {
     refetchQueries: [
@@ -32,6 +34,8 @@ const ThoughtForm = () => {
       });
 
       // TODO: Add a comment describing why we no longer need to reload the page
+      // We no longer need to reload the page because we are using the refetchQueries property 
+      // to refetch the queries that are listed in the array after the mutation is completed.
       setCharacterCount(0);
       setFormState({
         thoughtText: '',
